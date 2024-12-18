@@ -18,7 +18,17 @@ Ext.define('TestApp.view.main.List', {
     { text: 'Имя', dataIndex: 'name', flex: 1 },
     { text: 'Описание', dataIndex: 'description', flex: 1 },
     { text: 'Цена', dataIndex: 'price', flex: 1 },
-    { text: 'Количество', dataIndex: 'quantity', flex: 1, bg: 'red' },
+    {
+      text: 'Количество',
+      dataIndex: 'quantity',
+      flex: 1,
+      renderer: function (value, meta) {
+        if (parseInt(value) === 0) {
+          meta.style = 'background-color: red;';
+        }
+        return value;
+      },
+    },
   ],
 
   dockedItems: [
@@ -28,8 +38,4 @@ Ext.define('TestApp.view.main.List', {
       displayInfo: false,
     },
   ],
-
-  listeners: {
-    select: 'onItemSelected',
-  },
 });

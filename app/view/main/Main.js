@@ -19,9 +19,8 @@ Ext.define('TestApp.view.main.Main', {
   ],
 
   controller: 'main',
-  // plugin: 'viewport',
   viewModel: 'main',
-  autoShow: true,
+  plugin: 'viewport',
 
   ui: 'navigation',
 
