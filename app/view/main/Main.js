@@ -19,7 +19,9 @@ Ext.define('TestApp.view.main.Main', {
   ],
 
   controller: 'main',
+  // plugin: 'viewport',
   viewModel: 'main',
+  autoShow: true,
 
   ui: 'navigation',
 
@@ -33,10 +35,29 @@ Ext.define('TestApp.view.main.Main', {
     },
     title: {
       bind: {
-        text: 'Учет товаров',
+        text: '{name}',
       },
       flex: 0,
     },
+    items: [
+      {
+        xtype: 'button',
+        text: 'Товары',
+        iconCls: 'fas fa-dolly',
+        scale: 'large',
+        padding: 20,
+      },
+      {
+        xtype: 'button',
+        text: 'Выход',
+        iconCls: 'fas fa-door-open',
+        scale: 'large',
+        padding: 20,
+        listeners: {
+          click: 'onClickButton',
+        },
+      },
+    ],
   },
 
   tabBar: {
@@ -65,7 +86,7 @@ Ext.define('TestApp.view.main.Main', {
           textAlign: 'center',
         },
         tall: {
-          iconAlign: 'top',
+          iconAlign: 'left',
           textAlign: 'center',
           width: 120,
         },
@@ -76,7 +97,6 @@ Ext.define('TestApp.view.main.Main', {
   items: [
     {
       title: 'Товары',
-      iconCls: 'fa-dolly',
       // The following grid shares a store with the classic version's grid as well!
       items: [
         {
@@ -85,10 +105,15 @@ Ext.define('TestApp.view.main.Main', {
       ],
     },
     {
-      title: 'Выход',
-      iconCls: 'fa-door-open',
+      title: 'Товары',
       bind: {
-        html: '{loremIpsum}',
+        html: '{goods}',
+      },
+    },
+    {
+      title: 'Товары',
+      bind: {
+        html: '{goods}',
       },
     },
   ],
