@@ -1,6 +1,3 @@
-/**
- * This view is an example list of people.
- */
 Ext.define('TestApp.view.main.List', {
   extend: 'Ext.grid.Panel',
   xtype: 'mainlist',
@@ -17,7 +14,14 @@ Ext.define('TestApp.view.main.List', {
 
   columns: [
     { text: 'ID', dataIndex: 'id', flex: 1 },
-    { text: 'Имя', dataIndex: 'name', flex: 1 },
+    {
+      text: 'Имя',
+      dataIndex: 'name',
+      flex: 1,
+      listeners: {
+        click: 'openCard',
+      },
+    },
     { text: 'Описание', dataIndex: 'description', flex: 1 },
     { text: 'Цена', dataIndex: 'price', flex: 1 },
     {
@@ -42,6 +46,9 @@ Ext.define('TestApp.view.main.List', {
       fieldLabel: 'ID',
       allowBlank: true,
       enableKeyEvents: true,
+      hideTrigger: true,
+      minValue: 0,
+      allowDecimals: false,
       listeners: {
         keyup: 'applyIdFilter',
       },

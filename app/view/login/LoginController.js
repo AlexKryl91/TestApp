@@ -21,4 +21,5 @@ Ext.define('TestApp.view.login.LoginController', {
       Ext.Msg.alert('Ошибка доступа', 'Неверный логин или пароль');
     }
   },
+
 });

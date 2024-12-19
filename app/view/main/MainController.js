@@ -42,4 +42,19 @@ Ext.define('TestApp.view.main.MainController', {
         });
     }
   },
+
+  openCard: function (sender, record, index) {
+    const itemData = sender.up('grid').getStore().getAt(index).getData();
+
+    Ext.create({
+      xtype: 'formcard',
+      viewModel: {
+        data: itemData,
+      },
+
+      modal: true,
+
+      renderTo: Ext.getBody(),
+    }).show();
+  },
 });

@@ -17,7 +17,7 @@ Ext.define('TestApp.store.Goods', {
       {
         id: '2',
         name: 'Keyboard OKLICK',
-        description: 'Клавиатура OKLICK 140M, US...',
+        description: 'Клавиатура OKLICK 140M, USB, черный',
         price: '50',
         quantity: '8',
       },
