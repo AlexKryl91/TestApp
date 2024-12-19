@@ -3,3 +3,4 @@ bootstrap.*
 classic.json*
 modern.json*
 /ext
+/node_modules

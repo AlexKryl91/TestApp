@@ -1,0 +1,15 @@
+{
+  "name": "testapp",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "homepage": "https://alexkryl91.github.io/TestApp",
+  "scripts": {
+    "dev": "sencha app watch",
+    "build": "sencha app build",
+    "deploy": "npm run build && gh-pages -d build/production/TestApp"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.2.0"
+  }
+}
