@@ -25,8 +25,16 @@ Ext.define('TestApp.view.main.Main', {
   ui: 'navigation',
 
   tabBarHeaderPosition: 1,
+  // tabPosition: 'bottom',
   titleRotation: 0,
   tabRotation: 0,
+
+  // style: {
+  // width: '100%',
+  // flexDirection: 'column',
+  // flexWrap: 'wrap',
+  // background: 'red',
+  // },
 
   header: {
     layout: {
@@ -56,40 +64,51 @@ Ext.define('TestApp.view.main.Main', {
           click: 'onClickButton',
         },
       },
+      // {
+      //   flex: 3,
+      //   xtype: 'displayfield',
+      //   hideEmptyLabel: false,
+      //   value: '',
+      // },
     ],
   },
 
   tabBar: {
     flex: 1,
+    // style: {
+    //   width: '100%',
+    //   flexBasis: '600',
+    //   background: 'red',
+    // },
     layout: {
       align: 'stretch',
       overflowHandler: 'none',
     },
   },
 
-  responsiveConfig: {
-    tall: {
-      headerPosition: 'left',
-    },
-    wide: {
-      headerPosition: 'top',
-    },
-  },
+  // responsiveConfig: {
+  //   tall: {
+  //     headerPosition: 'top',
+  //   },
+  //   wide: {
+  //     headerPosition: 'top',
+  //   },
+  // },
 
   defaults: {
     bodyPadding: 20,
     tabConfig: {
-      responsiveConfig: {
-        wide: {
-          iconAlign: 'left',
-          textAlign: 'center',
-        },
-        tall: {
-          iconAlign: 'left',
-          textAlign: 'center',
-          width: 120,
-        },
-      },
+      // responsiveConfig: {
+      //   wide: {
+      //     iconAlign: 'left',
+      //     textAlign: 'center',
+      //   },
+      //   tall: {
+      //     iconAlign: 'left',
+      //     textAlign: 'center',
+      //     width: 120,
+      //   },
+      // },
     },
   },
 

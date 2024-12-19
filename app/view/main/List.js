@@ -13,6 +13,8 @@ Ext.define('TestApp.view.main.List', {
     type: 'goods',
   },
 
+  filterable: true,
+
   columns: [
     { text: 'ID', dataIndex: 'id', flex: 1 },
     { text: 'Имя', dataIndex: 'name', flex: 1 },
@@ -32,6 +34,30 @@ Ext.define('TestApp.view.main.List', {
   ],
 
   dockedItems: [
+    {
+      margin: '10 20 20 10',
+      xtype: 'numberfield',
+      dock: 'top',
+      name: 'idFilter',
+      fieldLabel: 'ID',
+      allowBlank: true,
+      enableKeyEvents: true,
+      listeners: {
+        keyup: 'applyIdFilter',
+      },
+    },
+    {
+      margin: '0 20 20 10',
+      xtype: 'textfield',
+      dock: 'top',
+      name: 'descFilter',
+      fieldLabel: 'Описание',
+      allowBlank: true,
+      enableKeyEvents: true,
+      listeners: {
+        keyup: 'applyDescFilter',
+      },
+    },
     {
       xtype: 'pagingtoolbar',
       dock: 'bottom',

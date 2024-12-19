@@ -7,18 +7,39 @@ Ext.define('TestApp.view.main.MainController', {
 
   alias: 'controller.main',
 
-
-  // onConfirm: function (choice) {
-  //   if (choice === 'yes') {
-  //     //
-  //   }
-  // },
-
   onClickButton: function () {
     localStorage.removeItem('TestLoggedIn');
 
     this.getView().destroy();
 
     Ext.create({ xtype: 'login' });
+  },
+
+  applyIdFilter: function (sender, record) {
+    if (record.event.key === 'Enter') {
+      sender
+        .up('grid')
+        .getStore()
+        .addFilter(function (record) {
+          const id = sender.value;
+          if (id) {
+            return record.get('id') === id;
+          } else {
+            return true;
+          }
+        });
+    }
+  },
+
+  applyDescFilter: function (sender, record) {
+    if (record.event.key === 'Enter') {
+      sender
+        .up('grid')
+        .getStore()
+        .addFilter(function (record) {
+          const word = sender.value.toLowerCase().trim();
+          return record.get('description').toLowerCase().includes(word);
+        });
+    }
   },
 });
