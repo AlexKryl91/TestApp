@@ -11,8 +11,7 @@ Ext.define('TestApp.Application', {
   views: ['TestApp.view.login.Login', 'TestApp.view.main.Main'],
 
   launch: function () {
-    var loggedIn;
-    loggedIn = localStorage.getItem('TestLoggedIn');
+    const loggedIn = localStorage.getItem('TestLoggedIn');
 
     Ext.create({
       xtype: loggedIn ? 'app-main' : 'login',

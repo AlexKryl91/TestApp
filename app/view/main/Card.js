@@ -8,24 +8,24 @@ Ext.define('TestApp.view.main.Card', {
 
   viewModel: {
     data: {
-      id: 'n/a',
-      name: 'n/a',
-      description: 'n/a',
-      price: 0,
-      quantity: 0,
+      id: null,
+      name: null,
+      description: null,
+      price: null,
+      quantity: null,
+      index: null,
       btnDiasbled: true,
     },
   },
 
   fixed: true,
-  // // floated: true,
-  // modal: true,
+  floating: true,
+  modal: true,
   closable: false,
-  // centered: true,
+  centered: true,
   width: 500,
   height: 350,
   layout: 'fit',
-  // plain: true,
   frame: true,
   title: 'Карточка товара',
 
@@ -42,9 +42,41 @@ Ext.define('TestApp.view.main.Card', {
         align: 'stretch',
       },
 
-      bodyPadding: 5,
+      bodyPadding: 6,
 
       items: [
+        // Unvisible data
+        {
+          xtype: 'numberfield',
+          name: 'index',
+          bind: '{index}',
+          readOnly: true,
+          hidden: true,
+        },
+        {
+          xtype: 'numberfield',
+          name: 'id',
+          bind: '{id}',
+          readOnly: true,
+          hidden: true,
+        },
+        {
+          xtype: 'textfield',
+          name: 'name',
+          bind: '{name}',
+          readOnly: true,
+          hidden: true,
+        },
+        {
+          xtype: 'textfield',
+          name: 'description',
+          bind: '{description}',
+          readOnly: true,
+          hidden: true,
+        },
+
+        // Rendered data
+
         {
           xtype: 'displayfield',
           name: 'id',
@@ -69,12 +101,14 @@ Ext.define('TestApp.view.main.Card', {
         {
           xtype: 'numberfield',
           name: 'price',
-          type: 'float',
           fieldLabel: 'Цена:',
           allowBlank: false,
           bind: '{price}',
           minValue: 0,
           allowDecimals: true,
+          listeners: {
+            change: 'priceChange',
+          },
         },
         {
           xtype: 'numberfield',
@@ -84,6 +118,9 @@ Ext.define('TestApp.view.main.Card', {
           bind: '{quantity}',
           minValue: 0,
           allowDecimals: false,
+          listeners: {
+            change: 'quantityChange',
+          },
         },
       ],
     },

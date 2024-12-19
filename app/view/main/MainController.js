@@ -45,6 +45,7 @@ Ext.define('TestApp.view.main.MainController', {
 
   openCard: function (sender, record, index) {
     const itemData = sender.up('grid').getStore().getAt(index).getData();
+    itemData.index = index;
 
     Ext.create({
       xtype: 'formcard',
@@ -52,9 +53,7 @@ Ext.define('TestApp.view.main.MainController', {
         data: itemData,
       },
 
-      modal: true,
-
       renderTo: Ext.getBody(),
-    }).show();
+    });
   },
 });
